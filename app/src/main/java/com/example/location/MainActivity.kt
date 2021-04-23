@@ -12,6 +12,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.*
+import android.util.Log
 
 class MainActivity : AppCompatActivity(), LocationListener {
 
@@ -44,6 +45,7 @@ class MainActivity : AppCompatActivity(), LocationListener {
             e.printStackTrace()
         }
         val address = addressList!![0].getAddressLine(0)
+        Log.d("address", address)
         tvGpsLocation.text = "Latitude: " + location.latitude + " , Longitude: " + location.longitude + " , Address: " + address
         if (firstTime){
             val intent = Intent(this, MapsActivity::class.java)
